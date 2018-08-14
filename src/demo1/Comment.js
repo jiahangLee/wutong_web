@@ -46,7 +46,7 @@ class Comment extends Component{
                 <span className='comment-createdtime'>
                     {this.state.timeString}
                 </span>
-                <span className='comment-delete' onClick={this.handleDeleteComment}>
+                <span className='comment-delete' onClick={this.handleDeleteComment.bind(this)}>
           删除
         </span>
             </div>

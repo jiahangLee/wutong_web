@@ -13,6 +13,9 @@ class CommentApp extends Component{
     componentWillMount(){
         this._loadComments()
     }
+    componentWillUnmount () {
+        clearInterval(this._timer)
+    }
     _loadComments(){
         let comments = localStorage.getItem('comments')
         if(comments){
