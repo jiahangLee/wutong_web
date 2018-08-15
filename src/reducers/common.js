@@ -10,6 +10,7 @@ export default function (state,action) {
     }
     switch (action.type) {
         case INIT_COMMENTS:
+            // localStorage.clear()
             return {
                 comments: action.comments
             }
