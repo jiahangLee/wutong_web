@@ -1,24 +1,20 @@
 import React,{Component} from 'react'
 import PropTypes from 'prop-types'
 class Comment extends Component{
-    constructor(){
-        super()
-        this.state={
-            timeString:''
-        }
-    }
     static propTypes = {
         comment: PropTypes.object.isRequired,
         onDeleteComment: PropTypes.func,
         index: PropTypes.number
     }
+    constructor(){
+        super()
+        this.state={timeString:''}
+    }
+
     handleDeleteComment () {
         if (this.props.onDeleteComment) {
             this.props.onDeleteComment(this.props.index)
         }
-    }
-    componentWillUnmount () {
-        clearInterval(this._timer)
     }
     componentWillMount () {
         this._updateTimeString()
@@ -26,6 +22,9 @@ class Comment extends Component{
             this._updateTimeString.bind(this),
             5000
         )
+    }
+    componentWillUnmount () {
+        clearInterval(this._timer)
     }
     _updateTimeString(){
         const comment = this.props.comment
